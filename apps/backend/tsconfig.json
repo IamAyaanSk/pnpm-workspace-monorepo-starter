@@ -1,0 +1,9 @@
+{
+  "extends": "@acme/typescript-config/server.json",
+  "compilerOptions": {
+    "outDir": "./dist",
+    "rootDir": "./src"
+  },
+  "exclude": ["node_modules", "./coverage", "./dist", "jest.config.js", "__tests__/**/*.ts"],
+  "include": ["src"]
+}

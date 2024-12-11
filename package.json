@@ -10,8 +10,12 @@
     "build:frontend": "pnpm --filter frontend build",
     "start:frontend": "pnpm --filter frontend start",
     "dev:frontend": "pnpm --filter frontend dev",
+    "build:backend": "pnpm --filter backend build",
+    "start:backend": "pnpm --filter backend start",
+    "dev:backend": "pnpm --filter backend dev",
     "format": "prettier --write .",
-    "lint": "pnpm run -r --parallel lint"
+    "lint": "pnpm run -r --parallel lint",
+    "prepare": "husky"
   },
   "keywords": [],
   "author": "",
