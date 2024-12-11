@@ -1,0 +1,26 @@
+{
+  "name": "pnpm_workspace_poc",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "format": "prettier --write ."
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "prettier": "^3.4.2",
+    "lint-staged": "^15.2.10",
+    "husky": "^9.1.6"
+  },
+  "lint-staged": {
+    "src/**/*.ts": [
+      "eslint --fix",
+      "prettier --write"
+    ]
+  },
+  "engines": {
+    "node": "20.x"
+  }
+}
