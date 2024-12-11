@@ -4,7 +4,14 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "format": "prettier --write ."
+    "build": "pnpm run -r --parallel build",
+    "start": "pnpm run -r --parallel start",
+    "dev": "pnpm run -r --parallel dev",
+    "build:frontend": "pnpm --filter frontend build",
+    "start:frontend": "pnpm --filter frontend start",
+    "dev:frontend": "pnpm --filter frontend dev",
+    "format": "prettier --write .",
+    "lint": "pnpm run -r --parallel lint"
   },
   "keywords": [],
   "author": "",

@@ -4,12 +4,14 @@
   "private": true,
   "files": [
     "server.json",
-    "next.json"
+    "nextjs.json"
   ],
   "devDependencies": {
     "@typescript-eslint/eslint-plugin": "^7.18.0",
     "@typescript-eslint/parser": "^7.18.0",
     "eslint-config-prettier": "^9.1.0",
-    "eslint-plugin-prettier": "^5.2.1"
+    "eslint-plugin-prettier": "^5.2.1",
+    "eslint-config-next": "15.1.0",
+    "@eslint/eslintrc": "^3"
   }
 }

@@ -1,0 +1,3 @@
+{
+  "extends": ["@ciphers/eslint-config/nextjs.json"]
+}
