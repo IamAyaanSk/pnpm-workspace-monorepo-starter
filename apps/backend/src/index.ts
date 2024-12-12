@@ -7,6 +7,7 @@ import cors from 'cors'
 
 import { User } from '@acme/prisma-db'
 import prismaClient from '@acme/prisma-db/client'
+import { greet } from '@acme/utils'
 
 const PORT = process.env.PORT ?? 3000
 const app = express()
@@ -21,6 +22,8 @@ app.use(
     origin: '*'
   })
 )
+
+greet('Ayaan')
 
 const a: User = {
   name: 'a',
