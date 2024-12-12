@@ -5,7 +5,10 @@ import express from 'express'
 import helmet from 'helmet'
 import cors from 'cors'
 
-const PORT = process.env.PORT || 3000
+import { User } from '@acme/prisma-db'
+import prismaClient from '@acme/prisma-db/client'
+
+const PORT = process.env.PORT ?? 3000
 const app = express()
 
 app.disable('x-powered-by')
@@ -19,9 +22,17 @@ app.use(
   })
 )
 
+const a: User = {
+  name: 'a',
+  id: 1,
+  email: '',
+  createdAt: new Date()
+}
+
 app.get('/', (req, res) => {
+  const users = prismaClient.user.findMany()
   res.json({
-    message: 'Hello World!'
+    message: users
   })
 })
 

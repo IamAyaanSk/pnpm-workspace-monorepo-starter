@@ -1,0 +1,45 @@
+{
+  "name": "@acme/prisma-db",
+  "version": "1.0.0",
+  "description": "",
+  "private": "true",
+  "scripts": {
+    "db:generate": "prisma generate",
+    "db:push": "prisma db push --skip-generate",
+    "build": "rm -rf dist && tsc -b",
+    "start": "TS_NODE_BASEURL=./dist node -r tsconfig-paths/register dist/index.js",
+    "dev": "pnpm run build --watch"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "default": "./dist/index.js"
+    },
+    "./*": {
+      "types": "./dist/*.d.ts",
+      "default": "./dist/*.js"
+    }
+  },
+  "dependencies": {
+    "@prisma/client": "^5.19.1"
+  },
+  "devDependencies": {
+    "@tsconfig/node20": "^20.1.4",
+    "@types/node": "^20.17.10",
+    "eslint": "^8.57.1",
+    "nodemon": "^3.1.7",
+    "prisma": "^5.19.1",
+    "ts-node": "^10.9.2",
+    "tsconfig-paths": "^4.2.0",
+    "tslib": "^2.8.1",
+    "typescript": "^5.6.2",
+    "@acme/eslint-config": "workspace:*",
+    "@acme/typescript-config": "workspace:*"
+  },
+  "engines": {
+    "node": "20.x"
+  }
+}
