@@ -1,7 +1,7 @@
 {
   "name": "pnpm_workspace_poc",
   "version": "1.0.0",
-  "description": "",
+  "description": "A minimal starter repository for setting up a monorepo using pnpm workspace.",
   "scripts": {
     "build": "pnpm run -r build",
     "start": "pnpm run -r start",
