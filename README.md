@@ -64,13 +64,48 @@ This file defines which directories are part of the workspace. Example:
 
 ```yaml
 packages:
-  - "packages/*"
-  - "apps/*"
+  - 'packages/*'
+  - 'apps/*'
 ```
 
 ## Scripts
 
 I have defined some scripts in the root `package.json` for common tasks, you can update them as per your usage.
+Refer the comments for clarity on what these scripts do:
+
+```json
+{
+  "scripts": {
+    // Scripts for all packages and apps in the workspace
+    "build": "pnpm run -r build",
+    "start": "pnpm run -r start",
+    // The dev script should only be ran once all packages are built ( run dev:packages on another terminal to start watching for packages files for proper development experience )
+    "dev": "pnpm run -parallel --filter './apps/*' dev",
+
+    // Scripts for packages
+    // The dev:packages is used to build packages sequentially and run the dev script for all packages in parallel
+    "dev:packages": "pnpm run build:packages && pnpm run --parallel --filter './packages/*' dev",
+    "build:packages": "pnpm run -r --filter './packages/*' build",
+
+    // Scripts for apps
+    // Please ensure packages are built before running the dev scripts
+    // or run dev:packages if you want to watch for changes in packages
+    "build:frontend": "pnpm run build:packages && pnpm --filter frontend build",
+    "start:frontend": "pnpm --filter frontend start",
+    "dev:frontend": "pnpm --filter frontend dev",
+
+    "build:backend": "pnpm run build:packages && pnpm --filter backend build",
+    "start:backend": "pnpm --filter backend start",
+    "dev:backend": "pnpm --filter backend dev",
+
+    // Linting and formatting scripts
+    "format": "prettier --write .",
+    "lint": "pnpm run -r --parallel lint",
+    "prepare": "husky",
+    "postinstall": "pnpm --filter @acme/prisma-db db:generate"
+  }
+}
+```
 
 ### Running in dev mode
 
@@ -80,8 +115,8 @@ Run the `dev:packages` first as it builds and watch the packages, then run `dev`
 ```json
 {
   "scripts": {
-    "dev:packages": "pnpm run -r --filter './packages/*' build && pnpm run -r --filter './packages/*' dev",
-    "dev": "pnpm run -parallel --filter './apps/*' dev"  
+    "dev:packages": "pnpm run build:packages && pnpm run --parallel --filter './packages/*' dev",
+    "dev": "pnpm run -parallel --filter './apps/*' dev"
   }
 }
 ```
@@ -114,4 +149,3 @@ Ayaan Shaikh
 ---
 
 Happy coding! 🚀
-
