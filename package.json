@@ -5,18 +5,19 @@
   "scripts": {
     "build": "pnpm run -r build",
     "start": "pnpm run -r start",
-    "dev:packages": "pnpm run -r --filter './packages/*' build && pnpm run --parallel --filter './packages/*' dev",
     "dev": "pnpm run -parallel --filter './apps/*' dev",
-    "build:frontend": "pnpm --filter frontend build",
+    "dev:packages": "pnpm run build:packages && pnpm run --parallel --filter './packages/*' dev",
+    "build:packages": "pnpm run -r --filter './packages/*' build",
+    "build:frontend": "pnpm run build:packages && pnpm --filter frontend build",
     "start:frontend": "pnpm --filter frontend start",
     "dev:frontend": "pnpm --filter frontend dev",
-    "build:backend": "pnpm --filter backend build",
+    "build:backend": "pnpm run build:packages && pnpm --filter backend build",
     "start:backend": "pnpm --filter backend start",
     "dev:backend": "pnpm --filter backend dev",
     "format": "prettier --write .",
     "lint": "pnpm run -r --parallel lint",
     "prepare": "husky",
-    "postinstall": "pnpm --filter @acme/prisma-db db:generate"
+    "postinstall": "pnpm --filter @acme/prisma-db db:generate && pnpm build:packages"
   },
   "keywords": [],
   "author": "Ayaan Shaikh",
