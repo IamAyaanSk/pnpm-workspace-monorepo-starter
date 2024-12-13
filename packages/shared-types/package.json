@@ -1,5 +1,5 @@
 {
-  "name": "@acme/utils",
+  "name": "@acme/shared-types",
   "version": "1.0.0",
   "description": "",
   "private": "true",
@@ -10,17 +10,16 @@
   },
   "exports": {
     ".": {
-      "types": "./dist/index.d.ts",
-      "default": "./dist/index.js"
+      "types": "./dist/index.d.ts"
     },
     "./*": {
-      "types": "./dist/*.d.ts",
-      "default": "./dist/*.js"
+      "types": "./dist/*.d.ts"
     }
   },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
   "devDependencies": {
-    "@acme/eslint-config": "workspace:*",
-    "@acme/typescript-config": "workspace:*",
     "@tsconfig/node20": "^20.1.4",
     "@types/node": "^20.17.10",
     "eslint": "^8.57.1",
@@ -28,11 +27,8 @@
     "ts-node": "^10.9.2",
     "tsconfig-paths": "^4.2.0",
     "tslib": "^2.8.1",
-    "typescript": "^5.6.2"
-  },
-  "keywords": [],
-  "license": "ISC",
-  "dependencies": {
-    "@acme/shared-types": "workspace:*"
+    "typescript": "^5.6.2",
+    "@acme/eslint-config": "workspace:*",
+    "@acme/typescript-config": "workspace:*"
   }
 }
