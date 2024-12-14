@@ -5,7 +5,7 @@
   "private": "true",
   "scripts": {
     "build": "rm -rf dist && tsc -b",
-    "dev": "tsc --watch",
+    "dev": "tsc --watch --pretty --preserveWatchOutput",
     "lint": "eslint 'src/**/*.ts'"
   },
   "exports": {

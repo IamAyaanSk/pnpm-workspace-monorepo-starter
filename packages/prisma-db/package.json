@@ -7,7 +7,7 @@
     "db:generate": "prisma generate",
     "db:push": "prisma db push --skip-generate",
     "build": "rm -rf dist && tsc -b",
-    "dev": "pnpm run build --watch",
+    "dev": "tsc --watch --pretty --preserveWatchOutput",
     "lint": "eslint 'src/**/*.ts'"
   },
   "keywords": [],

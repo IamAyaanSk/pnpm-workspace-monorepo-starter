@@ -4,7 +4,7 @@
     "allowJs": true,
     "baseUrl": "src",
     "esModuleInterop": true,
-    "incremental": false,
+    "incremental": true,
     "outDir": "dist",
     "declaration": true
   },
