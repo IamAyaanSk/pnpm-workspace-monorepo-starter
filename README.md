@@ -82,7 +82,7 @@ Refer the comments for clarity on what these scripts do:
     // starts all packages and apps
     "start": "pnpm run -r start",
     // run all packages and apps in watch mode for development
-    "dev": "pnpm run build:packages && concurrently --pad-prefix --names \"Packages,Apps\" -c \"bgGreen,bgBlue\" \"pnpm run dev:packages\" \"pnpm --parallel --filter './apps/*' run dev\"",
+    "dev": "concurrently --pad-prefix --names \"Packages,Apps\" -c \"bgGreen,bgBlue\" \"pnpm run dev:packages\" \"pnpm run --parallel --filter './apps/*' dev\"",
 
     // Scripts for packages
     // The dev:packages is used to build packages sequentially and run the dev script for all packages in parallel
@@ -90,18 +90,18 @@ Refer the comments for clarity on what these scripts do:
     "build:packages": "pnpm run -r --filter './packages/*' build",
 
     // Scripts for apps
-    "build:frontend": "pnpm run build:packages && pnpm --filter frontend build",
-    "start:frontend": "pnpm --filter frontend start",
-    "dev:frontend": "pnpm run build:packages && concurrently --pad-prefix --names \"Packages,Frontend\" -c \"bgGreen,bgBlue\" \"pnpm run dev:packages\" \"pnpm --filter frontend dev\"",
-    "build:backend": "pnpm run build:packages && pnpm --filter backend build",
-    "start:backend": "pnpm --filter backend start",
-    "dev:backend": "pnpm run build:packages && concurrently --pad-prefix --names \"Packages,Backend\" -c \"bgGreen,bgBlue\" \"pnpm run dev:packages\" \"pnpm --filter backend dev\"",
+    "build:frontend": "pnpm run --filter frontend build",
+    "start:frontend": "pnpm run --filter frontend start",
+    "dev:frontend": "concurrently --pad-prefix --names \"Packages,Frontend\" -c \"bgGreen,bgBlue\" \"pnpm run dev:packages\" \"pnpm run --filter frontend dev\"",
+    "build:backend": "pnpm run --filter backend build",
+    "start:backend": "pnpm run --filter backend start",
+    "dev:backend": "concurrently --pad-prefix --names \"Packages,Backend\" -c \"bgGreen,bgBlue\" \"pnpm run dev:packages\" \"pnpm run --filter backend dev\"",
 
     // Linting and formatting scripts
     "format": "prettier --write .",
     "lint": "pnpm run -r --parallel lint",
     "prepare": "husky",
-    "postinstall": "pnpm --filter @acme/prisma-db db:generate && pnpm build:packages"
+    "postinstall": "pnpm run --filter @acme/prisma-db db:generate && pnpm run build:packages"
   }
 }
 ```
