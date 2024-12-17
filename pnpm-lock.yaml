@@ -81,6 +81,9 @@ importers:
       '@acme/prisma-db':
         specifier: workspace:*
         version: link:../../packages/prisma-db
+      '@acme/utils':
+        specifier: workspace:*
+        version: link:../../packages/utils
       next:
         specifier: 15.1.0
         version: 15.1.0(react-dom@19.0.0(react@19.0.0))(react@19.0.0)

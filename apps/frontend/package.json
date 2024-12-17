@@ -9,20 +9,21 @@
     "lint": "next lint"
   },
   "dependencies": {
-    "react": "^19.0.0",
-    "react-dom": "^19.0.0",
+    "@acme/prisma-db": "workspace:*",
+    "@acme/utils": "workspace:*",
     "next": "15.1.0",
-    "@acme/prisma-db": "workspace:*"
+    "react": "^19.0.0",
+    "react-dom": "^19.0.0"
   },
   "devDependencies": {
-    "typescript": "^5",
+    "@acme/eslint-config": "workspace:*",
+    "@acme/typescript-config": "workspace:*",
     "@types/node": "^20",
     "@types/react": "^19",
     "@types/react-dom": "^19",
+    "eslint": "^8.57.1",
     "postcss": "^8",
     "tailwindcss": "^3.4.1",
-    "eslint": "^8.57.1",
-    "@acme/eslint-config": "workspace:*",
-    "@acme/typescript-config": "workspace:*"
+    "typescript": "^5"
   }
 }
